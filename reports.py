@@ -48,6 +48,14 @@ def get_genres(file_name):
     return set([row[3] for row in games])
 
 
+def sort_abc(file_name):
+    pass
+
+
+def when_was_top_sold_fps(file_name):
+    pass
+
+
 # print(open_file("game_stat.txt"))
 # print(count_games("game_stat.txt"))
 # print(decide("game_stat.txt", 2004))
