@@ -1,3 +1,14 @@
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+    return arr
+
+
 def open_file(file_name):
     try:
         with open(file_name, 'r', encoding='utf-8') as f:
@@ -52,11 +63,23 @@ def get_genres(file_name):
 
 
 def sort_abc(file_name):
-    pass
+    games = open_file(file_name)
+    games = [item[0] for item in games]  # tworzenie listy samych tytułów
+    games = insertion_sort(games)
+    return games
 
 
 def when_was_top_sold_fps(file_name):
-    pass
+    games = open_file(file_name)
+    top = (0, 0)
+    for game in games:
+        if game[3] == 'First-person shooter':
+            if float(game[1]) > float(top[0]):
+                top = (game[1], game[2])
+    if top == (0, 0):
+        raise ValueError("First-person shooter not found")
+    else:
+        return int(top[1])
 
 
 # print(open_file("game_stat.txt"))
