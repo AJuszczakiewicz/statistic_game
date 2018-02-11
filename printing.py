@@ -8,7 +8,7 @@ question_arguments = {
                 "5": "Please enter filename and title separating them by coma: ",
                 "6": "Please enter filename: ",
                 "7": "Please enter filename: ",
-                "8": "Please enter filename: ",
+                "8": "Please enter filename: "
              }
 
 question_no_to_function = {
@@ -38,12 +38,20 @@ def greetings():
     print("For exit, enter: 9")
 
 
+user_input = ""
 greetings()
-while True:
+while user_input is not "9":
     arguments = []
     user_input = input("\n:")
+    if user_input not in question_no_to_function:
+        print("Oops, option not found. Please try again")
+        continue
     if user_input in question_arguments:
         arguments = input(question_arguments[user_input])
         arguments = arguments.strip().split(",")
-    if user_input in question_no_to_function:
-        print(question_no_to_function[user_input](*arguments))
+    try:
+        if user_input in question_no_to_function:
+            print(question_no_to_function[user_input](*arguments))
+    except ValueError:
+        print("Entered arguments aren't correct. Please try again.")
+

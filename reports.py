@@ -1,8 +1,12 @@
 def open_file(file_name):
-    with open(file_name, 'r', encoding='utf-8') as f:
-        text = f.read()
-        games = split(text)
-        return games
+    try:
+        with open(file_name, 'r', encoding='utf-8') as f:
+            text = f.read()
+            games = split(text)
+            return games
+    except FileNotFoundError:
+        print("Wrong file name.")
+        exit()
 
 
 def split(file_object):
@@ -44,7 +48,6 @@ def get_line_number_by_title(file_name, title):
 
 def get_genres(file_name):
     games = open_file(file_name)
-    print(set([row[3] for row in games]))
     return set([row[3] for row in games])
 
 
