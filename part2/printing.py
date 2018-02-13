@@ -3,10 +3,10 @@ from reports import *
 
 question_arguments = {
                 "1": "Please enter filename: ",
-                "2": "Please enter filename and year separating them by coma: ",
+                "2": "Please enter filename  ",
                 "3": "Please enter filename: ",
-                "4": "Please enter filename and genre separating them by coma:",
-                "5": "Please enter filename and title separating them by coma: ",
+                "4": "Please enter filename: ",
+                "5": "Please enter filename: ",
                 "6": "Please enter filename: ",
                 "7": "Please enter filename: ",
                 "8": "Please enter filename: "

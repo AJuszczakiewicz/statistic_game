@@ -31,9 +31,9 @@ def count_games(file_name):
     return len(open_file(file_name))
 
 
-def decide(file_name, year):
+def decide(file_name, years):
     games = open_file(file_name)
-    return any(str(year) in sl for sl in games)
+    return any(str(years) in sl for sl in games)
 
 
 def get_latest(file_name):
@@ -64,7 +64,7 @@ def get_genres(file_name):
 
 def sort_abc(file_name):
     games = open_file(file_name)
-    games = [item[0] for item in games]  # tworzenie listy samych tytułów
+    games = [item[0] for item in games]
     games = insertion_sort(games)
     return games
 
